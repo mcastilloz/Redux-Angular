@@ -1,9 +1,9 @@
 import {TodoModel} from './model/todo.model';
 import * as fromActions from './todo.actions';
 
-const todo1 = new TodoModel('Ejemplo1');
-const todo2 = new TodoModel('Ejemplo2');
-const todo3 = new TodoModel('este es el ejemplo3');
+const todo1 = new TodoModel('Task 1');
+const todo2 = new TodoModel('Task2');
+const todo3 = new TodoModel('Task 3 urgente');
 todo2.completado = true;
 const estadoInicial: TodoModel[] = [todo1, todo2, todo3];
 
@@ -28,7 +28,7 @@ export function  todoReducer( state = estadoInicial,
          }
 
        });
-      // EDITAR TODO
+      // Edit TODO
     case fromActions.EDIT_TODO:
       return state.map(todoEdit => {
         if (todoEdit.id === action.id) {
