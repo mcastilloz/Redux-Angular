@@ -20,8 +20,8 @@ txtInput: FormControl;
 
   ngOnInit() {
 
-    this.chkField = new FormControl(this.todo.completado);
-    this.txtInput = new FormControl(this.todo.texto, Validators.required);
+    this.chkField = new FormControl(this.todo.completed);
+    this.txtInput = new FormControl(this.todo.msgtext, Validators.required);
     this.chkField.valueChanges.subscribe(valor => {
         const  action = new ToggleTodoActions(this.todo.id);
         this.store.dispatch(action);
@@ -43,7 +43,7 @@ txtInput: FormControl;
     if (this.txtInput.invalid) {
       return;
     }
-    if (this.txtInput.value === this.todo.texto) {
+    if (this.txtInput.value === this.todo.msgtext) {
      return;
     }
     const  action = new EditTodoAction(this.todo.id, this.txtInput.value);

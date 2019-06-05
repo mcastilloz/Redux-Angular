@@ -7,7 +7,7 @@ export const EDIT_TODO = '[TODO] eDIT';
 
 export class AddTodoAction implements Action {
   readonly  type = ADDTODO;
-  constructor(public texto: string) {}
+  constructor(public msgtext: string) {}
 
 }
 
@@ -19,7 +19,7 @@ export class ToggleTodoActions implements Action {
 
 export class EditTodoAction implements Action {
   readonly  type = EDIT_TODO;
-  constructor(public id: number, public texto: string) {}
+  constructor(public id: number, public msgtext: string) {}
 
 }
 

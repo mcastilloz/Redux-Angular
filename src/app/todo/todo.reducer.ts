@@ -4,7 +4,7 @@ import * as fromActions from './todo.actions';
 const todo1 = new TodoModel('Task 1');
 const todo2 = new TodoModel('Task2');
 const todo3 = new TodoModel('Task 3 urgente');
-todo2.completado = true;
+todo2.completed = true;
 const estadoInicial: TodoModel[] = [todo1, todo2, todo3];
 
 export function  todoReducer( state = estadoInicial,
@@ -13,14 +13,14 @@ export function  todoReducer( state = estadoInicial,
   switch (action.type) {
 
     case fromActions.ADDTODO:
-      const todo = new TodoModel(action.texto);
+      const todo = new TodoModel(action.msgtext);
       return [...state, todo];
     case fromActions.TOGGLE_TODO:
        return state.map(todoEdit => {
          if (todoEdit.id === action.id) {
            return {
             ...todoEdit,
-             completado: !todoEdit.completado
+             completed: !todoEdit.completed
 
            };
          } else {
@@ -34,7 +34,7 @@ export function  todoReducer( state = estadoInicial,
         if (todoEdit.id === action.id) {
           return {
             ...todoEdit,
-             texto : action.texto
+             msgtext : action.msgtext
           };
         } else {
           return todoEdit;

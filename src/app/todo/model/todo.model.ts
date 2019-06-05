@@ -1,13 +1,13 @@
 export class TodoModel {
   public id: number;
-  public texto: string;
-  public completado: boolean;
+  public msgtext: string;
+  public completed: boolean;
 
   constructor(texto: string) {
 
-    this.texto = texto.charAt(0).toLocaleUpperCase()
+    this.msgtext = texto.charAt(0).toLocaleUpperCase()
                   + texto.slice(1);
-    this.completado = false;
+    this.completed = false;
     this.id = Math.random();
   }
 
