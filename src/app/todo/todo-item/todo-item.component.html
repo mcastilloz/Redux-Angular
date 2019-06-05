@@ -9,12 +9,13 @@
            [checked]="todo.completed"
     >
     <label (dblclick)="editar()" >{{todo.msgtext}}</label>
-    <button class="destroy"></button>
+    <button class="destroy" (click)="deleteTask()"></button>
   </div>
   <input class="edit"
          value="todo.texto"
          [formControl]="txtInput"
          (blur)="terminarEdicion()"
+         (keyup.enter)="terminarEdicion()"
          #txtInputLocal
   >
 </li>

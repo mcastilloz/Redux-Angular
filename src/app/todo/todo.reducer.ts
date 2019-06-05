@@ -41,8 +41,17 @@ export function  todoReducer( state = estadoInicial,
         }
 
       });
+    case fromActions.DELETE_TODO:
+      return state.filter(
+        todoDelete => todoDelete.id !== action.id);
 
-
+    case fromActions.TOGGLE_ALL_TODO:
+      return state.map( todoedit => {
+        return{
+         ...todoedit,
+          completed: action.taskSelected
+        };
+      });
 
     default:
   return state;
