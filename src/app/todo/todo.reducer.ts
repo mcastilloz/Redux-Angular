@@ -52,6 +52,10 @@ export function  todoReducer( state = estadoInicial,
           completed: action.taskSelected
         };
       });
+    case fromActions.CLEAR_COMPLETED_TODO:
+      return state.filter(
+        todoState => !todoState.completed);
+
 
     default:
   return state;
