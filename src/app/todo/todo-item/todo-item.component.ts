@@ -1,9 +1,10 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {TodoModel} from '../model/todo.model';
 import {FormControl, Validators} from '@angular/forms';
-import {AppModule} from '../../app.module';
+// import {AppModule} from '../../app.module';
 import {Store} from '@ngrx/store';
 import {DeleteTodoActions, EditTodoAction, ToggleTodoActions} from '../todo.actions';
+import {AppState} from '../../app.reducer';
 
 @Component({
   selector: 'app-todo-item',
@@ -16,7 +17,7 @@ export class TodoItemComponent implements OnInit {
 chkField: FormControl;
 txtInput: FormControl;
   editando: boolean;
-  constructor(private store: Store<AppModule>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
 
